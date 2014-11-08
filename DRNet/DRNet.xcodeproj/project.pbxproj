@@ -51,7 +51,28 @@
 		31230B331A0DB626006FA9C7 /* ResponseImageDeserializer_OSX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31230B311A0DB626006FA9C7 /* ResponseImageDeserializer_OSX.swift */; };
 		314FF4E119F5B75600A60FB8 /* DRNet_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 314FF4E019F5B75600A60FB8 /* DRNet_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		314FF50119F5B8BB00A60FB8 /* DRNet_OSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 314FF50019F5B8BB00A60FB8 /* DRNet_OSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3176C79F1A0DC0A400B773E6 /* DRNet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 314FF4DB19F5B75600A60FB8 /* DRNet.framework */; };
+		3176C7BA1A0DC28A00B773E6 /* DRNet_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3176C7B81A0DC28600B773E6 /* DRNet_Tests.swift */; };
+		3176C7C61A0DC42600B773E6 /* DRNet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 314FF4FC19F5B8BB00A60FB8 /* DRNet.framework */; };
+		3176C7CC1A0DC47200B773E6 /* DRNet_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3176C7B81A0DC28600B773E6 /* DRNet_Tests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3176C7A01A0DC0A400B773E6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 314FF4D219F5B75600A60FB8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 314FF4DA19F5B75600A60FB8;
+			remoteInfo = DRNet_iOS;
+		};
+		3176C7C71A0DC42600B773E6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 314FF4D219F5B75600A60FB8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 314FF4FB19F5B8BB00A60FB8;
+			remoteInfo = DRNet_OSX;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		31230AE51A0DAFCA006FA9C7 /* Operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Operation.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -84,6 +105,11 @@
 		314FF4FC19F5B8BB00A60FB8 /* DRNet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DRNet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		314FF4FF19F5B8BB00A60FB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		314FF50019F5B8BB00A60FB8 /* DRNet_OSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRNet_OSX.h; sourceTree = "<group>"; };
+		3176C7991A0DC0A400B773E6 /* DRNet_iOS_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DRNet_iOS_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3176C79C1A0DC0A400B773E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3176C7AC1A0DC0D200B773E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3176C7B81A0DC28600B773E6 /* DRNet_Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DRNet_Tests.swift; sourceTree = "<group>"; };
+		3176C7C01A0DC42600B773E6 /* DRNet_OSX_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DRNet_OSX_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +124,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3176C7961A0DC0A400B773E6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3176C79F1A0DC0A400B773E6 /* DRNet.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3176C7BD1A0DC42600B773E6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3176C7C61A0DC42600B773E6 /* DRNet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,7 +220,10 @@
 			children = (
 				314FF51519F5BD7D00A60FB8 /* DRNet */,
 				314FF4DD19F5B75600A60FB8 /* DRNet_iOS */,
+				3176C79A1A0DC0A400B773E6 /* DRNet_iOS_Tests */,
 				314FF4FD19F5B8BB00A60FB8 /* DRNet_OSX */,
+				3176C7AA1A0DC0D200B773E6 /* DRNet_OSX_Tests */,
+				3176C7B51A0DC1D000B773E6 /* DRNet_Tests */,
 				314FF4DC19F5B75600A60FB8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -188,6 +233,8 @@
 			children = (
 				314FF4DB19F5B75600A60FB8 /* DRNet.framework */,
 				314FF4FC19F5B8BB00A60FB8 /* DRNet.framework */,
+				3176C7991A0DC0A400B773E6 /* DRNet_iOS_Tests.xctest */,
+				3176C7C01A0DC42600B773E6 /* DRNet_OSX_Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -242,6 +289,46 @@
 				31230AE81A0DAFCA006FA9C7 /* Task.swift */,
 			);
 			path = DRNet;
+			sourceTree = "<group>";
+		};
+		3176C79A1A0DC0A400B773E6 /* DRNet_iOS_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				3176C79B1A0DC0A400B773E6 /* Supporting Files */,
+			);
+			path = DRNet_iOS_Tests;
+			sourceTree = "<group>";
+		};
+		3176C79B1A0DC0A400B773E6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3176C79C1A0DC0A400B773E6 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3176C7AA1A0DC0D200B773E6 /* DRNet_OSX_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				3176C7AB1A0DC0D200B773E6 /* Supporting Files */,
+			);
+			path = DRNet_OSX_Tests;
+			sourceTree = "<group>";
+		};
+		3176C7AB1A0DC0D200B773E6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3176C7AC1A0DC0D200B773E6 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3176C7B51A0DC1D000B773E6 /* DRNet_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				3176C7B81A0DC28600B773E6 /* DRNet_Tests.swift */,
+			);
+			path = DRNet_Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,6 +389,42 @@
 			productReference = 314FF4FC19F5B8BB00A60FB8 /* DRNet.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		3176C7981A0DC0A400B773E6 /* DRNet_iOS_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3176C7A41A0DC0A400B773E6 /* Build configuration list for PBXNativeTarget "DRNet_iOS_Tests" */;
+			buildPhases = (
+				3176C7951A0DC0A400B773E6 /* Sources */,
+				3176C7961A0DC0A400B773E6 /* Frameworks */,
+				3176C7971A0DC0A400B773E6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3176C7A11A0DC0A400B773E6 /* PBXTargetDependency */,
+			);
+			name = DRNet_iOS_Tests;
+			productName = DRNet_iOS_Tests;
+			productReference = 3176C7991A0DC0A400B773E6 /* DRNet_iOS_Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3176C7BF1A0DC42600B773E6 /* DRNet_OSX_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3176C7C91A0DC42600B773E6 /* Build configuration list for PBXNativeTarget "DRNet_OSX_Tests" */;
+			buildPhases = (
+				3176C7BC1A0DC42600B773E6 /* Sources */,
+				3176C7BD1A0DC42600B773E6 /* Frameworks */,
+				3176C7BE1A0DC42600B773E6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3176C7C81A0DC42600B773E6 /* PBXTargetDependency */,
+			);
+			name = DRNet_OSX_Tests;
+			productName = DRNet_OSX_Tests;
+			productReference = 3176C7C01A0DC42600B773E6 /* DRNet_OSX_Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -315,6 +438,12 @@
 						CreatedOnToolsVersion = 6.1;
 					};
 					314FF4FB19F5B8BB00A60FB8 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					3176C7981A0DC0A400B773E6 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					3176C7BF1A0DC42600B773E6 = {
 						CreatedOnToolsVersion = 6.1;
 					};
 				};
@@ -333,6 +462,8 @@
 			targets = (
 				314FF4DA19F5B75600A60FB8 /* DRNet_iOS */,
 				314FF4FB19F5B8BB00A60FB8 /* DRNet_OSX */,
+				3176C7981A0DC0A400B773E6 /* DRNet_iOS_Tests */,
+				3176C7BF1A0DC42600B773E6 /* DRNet_OSX_Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -346,6 +477,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		314FF4FA19F5B8BB00A60FB8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3176C7971A0DC0A400B773E6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3176C7BE1A0DC42600B773E6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -411,7 +556,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3176C7951A0DC0A400B773E6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3176C7BA1A0DC28A00B773E6 /* DRNet_Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3176C7BC1A0DC42600B773E6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3176C7CC1A0DC47200B773E6 /* DRNet_Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3176C7A11A0DC0A400B773E6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 314FF4DA19F5B75600A60FB8 /* DRNet_iOS */;
+			targetProxy = 3176C7A01A0DC0A400B773E6 /* PBXContainerItemProxy */;
+		};
+		3176C7C81A0DC42600B773E6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 314FF4FB19F5B8BB00A60FB8 /* DRNet_OSX */;
+			targetProxy = 3176C7C71A0DC42600B773E6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		314FF4EF19F5B75600A60FB8 /* Debug */ = {
@@ -596,6 +770,71 @@
 			};
 			name = Release;
 		};
+		3176C7A21A0DC0A400B773E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "DRNet_iOS_Tests/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3176C7A31A0DC0A400B773E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "DRNet_iOS_Tests/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		3176C7CA1A0DC42600B773E6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "DRNet_OSX_Tests/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		3176C7CB1A0DC42600B773E6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "DRNet_OSX_Tests/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -625,6 +864,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		3176C7A41A0DC0A400B773E6 /* Build configuration list for PBXNativeTarget "DRNet_iOS_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3176C7A21A0DC0A400B773E6 /* Debug */,
+				3176C7A31A0DC0A400B773E6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		3176C7C91A0DC42600B773E6 /* Build configuration list for PBXNativeTarget "DRNet_OSX_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3176C7CA1A0DC42600B773E6 /* Debug */,
+				3176C7CB1A0DC42600B773E6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

@@ -28,7 +28,26 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3176C7981A0DC0A400B773E6"
+               BuildableName = "DRNet_iOS_Tests.xctest"
+               BlueprintName = "DRNet_iOS_Tests"
+               ReferencedContainer = "container:DRNet.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "314FF4DA19F5B75600A60FB8"
+            BuildableName = "DRNet.framework"
+            BlueprintName = "DRNet_iOS"
+            ReferencedContainer = "container:DRNet.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"

@@ -46,9 +46,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "314FF50519F5B8BB00A60FB8"
-               BuildableName = "DRNet_OSXTests.xctest"
-               BlueprintName = "DRNet_OSXTests"
+               BlueprintIdentifier = "3176C7BF1A0DC42600B773E6"
+               BuildableName = "DRNet_OSX_Tests.xctest"
+               BlueprintName = "DRNet_OSX_Tests"
                ReferencedContainer = "container:DRNet.xcodeproj">
             </BuildableReference>
          </TestableReference>
