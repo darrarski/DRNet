@@ -8,6 +8,6 @@
 
 import Foundation
 
-class URLSessionResponse: Response {
+public class URLSessionResponse: Response {
     
 }

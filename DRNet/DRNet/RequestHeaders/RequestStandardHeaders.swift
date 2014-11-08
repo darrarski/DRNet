@@ -8,12 +8,12 @@
 
 import Foundation
 
-class RequestStandardHeaders: RequestHeaders {
+public class RequestStandardHeaders: RequestHeaders {
     
-    let headers: [String: String]
-    let append: Bool = false
+    public let headers: [String: String]
+    public let append: Bool = false
     
-    init(_ headers: [String: String], append: Bool? = nil) {
+    public init(_ headers: [String: String], append: Bool? = nil) {
         self.headers = headers
         if let append = append {
             self.append = append
@@ -22,14 +22,14 @@ class RequestStandardHeaders: RequestHeaders {
     
     // MARK: - RequestParameters protocol
     
-    func setHeadersInRequest(request: NSURLRequest) -> NSURLRequest {
+    public func setHeadersInRequest(request: NSURLRequest) -> NSURLRequest {
         var mutableURLRequest: NSMutableURLRequest! = request.mutableCopy() as NSMutableURLRequest
         setHeadersInRequest(mutableURLRequest)
         
         return request.copy() as NSURLRequest
     }
     
-    func setHeadersInRequest(request: NSMutableURLRequest) {
+    public func setHeadersInRequest(request: NSMutableURLRequest) {
         for (key, value) in headers {
             if append {
                 request.addValue(value, forHTTPHeaderField: key)

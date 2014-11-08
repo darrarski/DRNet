@@ -8,15 +8,15 @@
 
 import Foundation
 
-class Task {
+public class Task {
     
-    let provider: Provider
+    public let provider: Provider
     
-    init(provider: Provider) {
+    public init(provider: Provider) {
         self.provider = provider
     }
     
-    func performRequest(request: Request, completion: (response: Response) -> Void) {
+    public func performRequest(request: Request, completion: (response: Response) -> Void) {
         provider.responseForRequest(request, completion: { (response) -> Void in
             completion(response: response)
         })

@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol RequestHeaders {
+public protocol RequestHeaders {
     
     func setHeadersInRequest(request: NSURLRequest) -> NSURLRequest
     func setHeadersInRequest(request: NSMutableURLRequest)

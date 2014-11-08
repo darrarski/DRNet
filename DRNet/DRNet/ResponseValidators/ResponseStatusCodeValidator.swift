@@ -8,17 +8,17 @@
 
 import Foundation
 
-class ResponseStatusCodeValidator: ResponseValidator {
+public class ResponseStatusCodeValidator: ResponseValidator {
     
-    let expectedStatusCodeRange: Range<Int>
+    public let expectedStatusCodeRange: Range<Int>
     
-    init(_ expectedStatusCodeRange: Range<Int>) {
+    public init(_ expectedStatusCodeRange: Range<Int>) {
         self.expectedStatusCodeRange = expectedStatusCodeRange
     }
     
     // MARK: - ResponseValidator protocol
     
-    func validateResponse(response: Response, forRequest: Request) -> [NSError]? {
+    public func validateResponse(response: Response, forRequest: Request) -> [NSError]? {
         var errors: [NSError] = []
         
         if let HTTPURLResponse = response.URLResponse as? NSHTTPURLResponse {
@@ -35,9 +35,9 @@ class ResponseStatusCodeValidator: ResponseValidator {
     
     // MARK: - Error
     
-    class Error: NSError {
+    public class Error: NSError {
         
-        class var Domain: String { return NSBundle(forClass: classForCoder()).bundleIdentifier! + ".ResponseStatusCodeValidatorError" }
+        public class var Domain: String { return NSBundle(forClass: classForCoder()).bundleIdentifier! + ".ResponseStatusCodeValidatorError" }
         
         init(expectedStatusCodeRange: Range<Int>, statusCode: Int?) {
             var userInfo: [String: Int] = [
@@ -59,20 +59,20 @@ class ResponseStatusCodeValidator: ResponseValidator {
             )
         }
         
-        required init(coder aDecoder: NSCoder) {
+        public required init(coder aDecoder: NSCoder) {
             super.init(coder: aDecoder)
         }
         
         // MARK: Properties
         
-        var expectedStatusCodeRange: Range<Int> {
+        public var expectedStatusCodeRange: Range<Int> {
             return Range<Int>(
                 start: userInfo!["expectedStatusCodeRangeStart"] as Int,
                 end: userInfo!["expectedStatusCodeRangeEnd"] as Int
             )
         }
         
-        var statusCode: Int? {
+        public var statusCode: Int? {
             return userInfo?["statusCode"] as? Int
         }
         

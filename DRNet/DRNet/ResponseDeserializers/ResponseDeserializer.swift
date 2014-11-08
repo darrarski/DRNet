@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol ResponseDeserializer {
+public protocol ResponseDeserializer {
 
     func deserializeResponseData(response: Response) -> (deserializedData: AnyObject?, errors: [NSError]?)
     

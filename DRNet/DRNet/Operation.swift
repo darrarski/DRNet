@@ -8,18 +8,18 @@
 
 import Foundation
 
-class Operation {
+public class Operation {
     
-    typealias OnErrorClosure = (response: Response, deserializedData: AnyObject?, errors: [NSError], shouldHandle: UnsafeMutablePointer<Bool>) -> Void
-    typealias OnSuccessClosure = (response: Response, deserializedData: AnyObject?, shouldHandle: UnsafeMutablePointer<Bool>) -> Void
-    typealias HandlerClosure = (operation: Operation, request: Request, task: Task, response: Response, deserializedData: AnyObject?, errors: [NSError]?) -> Void
-    typealias OnCompleteClosure = (response: Response, deserializedData: AnyObject?, errors: [NSError]?) -> Void
+    public typealias OnErrorClosure = (response: Response, deserializedData: AnyObject?, errors: [NSError], shouldHandle: UnsafeMutablePointer<Bool>) -> Void
+    public typealias OnSuccessClosure = (response: Response, deserializedData: AnyObject?, shouldHandle: UnsafeMutablePointer<Bool>) -> Void
+    public typealias HandlerClosure = (operation: Operation, request: Request, task: Task, response: Response, deserializedData: AnyObject?, errors: [NSError]?) -> Void
+    public typealias OnCompleteClosure = (response: Response, deserializedData: AnyObject?, errors: [NSError]?) -> Void
     
-    let validators: [ResponseValidator] = []
-    let dataDeserializer: ResponseDeserializer? = nil
-    let handlerClosure: HandlerClosure?
+    public let validators: [ResponseValidator] = []
+    public let dataDeserializer: ResponseDeserializer? = nil
+    public let handlerClosure: HandlerClosure?
     
-    init(validators: [ResponseValidator]?, dataDeserializer: ResponseDeserializer?, handlerClosure: HandlerClosure?) {
+    public init(validators: [ResponseValidator]?, dataDeserializer: ResponseDeserializer?, handlerClosure: HandlerClosure?) {
         if let validators = validators {
             self.validators = validators
         }
@@ -27,7 +27,7 @@ class Operation {
         self.handlerClosure = handlerClosure
     }
     
-    func perfromRequest(request: Request, withTask task: Task, onError: OnErrorClosure? = nil, onSuccess: OnSuccessClosure? = nil, onComplete: OnCompleteClosure? = nil) {
+    public func perfromRequest(request: Request, withTask task: Task, onError: OnErrorClosure? = nil, onSuccess: OnSuccessClosure? = nil, onComplete: OnCompleteClosure? = nil) {
             
         task.performRequest(request, completion: { (response) -> Void in
             var deserializedData: AnyObject?

@@ -8,14 +8,14 @@
 
 import Foundation
 
-class Response: NSObject, NSCoding {
+public class Response: NSObject, NSCoding {
     
-    let URLResponse: NSURLResponse?
-    let data: NSData?
-    let error: NSError?
-    let URLRequest: NSURLRequest?
+    public let URLResponse: NSURLResponse?
+    public let data: NSData?
+    public let error: NSError?
+    public let URLRequest: NSURLRequest?
     
-    init(URLResponse: NSURLResponse?, data: NSData?, error: NSError?, forURLRequest: NSURLRequest?) {
+    public init(URLResponse: NSURLResponse?, data: NSData?, error: NSError?, forURLRequest: NSURLRequest?) {
         self.URLResponse = URLResponse
         self.data = data
         self.error = error
@@ -24,7 +24,7 @@ class Response: NSObject, NSCoding {
     
     // MARK: - NSCoding
     
-    required convenience init(coder aDecoder: NSCoder) {
+    public required convenience init(coder aDecoder: NSCoder) {
         self.init(
             URLResponse: {
                 return aDecoder.decodeObjectForKey("URLResponse") as? NSURLResponse
@@ -41,7 +41,7 @@ class Response: NSObject, NSCoding {
         )
     }
     
-    func encodeWithCoder(aCoder: NSCoder) {
+    public func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(URLResponse, forKey: "URLResponse")
         aCoder.encodeObject(data, forKey: "data")
         aCoder.encodeObject(error, forKey: "error")

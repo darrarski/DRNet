@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol Provider {
+public protocol Provider {
     
     func responseForRequest(request: Request, completion: (response: Response) -> Void)
     

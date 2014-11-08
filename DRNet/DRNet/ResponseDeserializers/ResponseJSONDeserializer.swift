@@ -8,11 +8,11 @@
 
 import Foundation
 
-class ResponseJSONDeserializer: ResponseDeserializer {
+public class ResponseJSONDeserializer: ResponseDeserializer {
     
-    let options: NSJSONReadingOptions = .allZeros
+    public let options: NSJSONReadingOptions = .allZeros
     
-    init(options: NSJSONReadingOptions? = nil) {
+    public init(options: NSJSONReadingOptions? = nil) {
         if let options = options {
             self.options = options
         }
@@ -20,7 +20,7 @@ class ResponseJSONDeserializer: ResponseDeserializer {
     
     // MARK: ResponseDeserializer protocol
     
-    func deserializeResponseData(response: Response) -> (deserializedData: AnyObject?, errors: [NSError]?) {
+    public func deserializeResponseData(response: Response) -> (deserializedData: AnyObject?, errors: [NSError]?) {
         var deserializedData: AnyObject?
         var errors: [NSError] = []
         

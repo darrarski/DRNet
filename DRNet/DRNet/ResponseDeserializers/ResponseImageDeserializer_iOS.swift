@@ -9,9 +9,9 @@
 import Foundation
 import UIKit
 
-class ResponseImageDeserializer: ResponseDeserializer {
+public class ResponseImageDeserializer: ResponseDeserializer {
     
-    func deserializeResponseData(response: Response) -> (deserializedData: AnyObject?, errors: [NSError]?) {
+    public func deserializeResponseData(response: Response) -> (deserializedData: AnyObject?, errors: [NSError]?) {
         if let data = response.data {
             let image = UIImage(data: data)
             if let image = image {
@@ -22,9 +22,9 @@ class ResponseImageDeserializer: ResponseDeserializer {
         return (deserializedData: nil, errors: [Error()])
     }
     
-    class Error: NSError {
+    public class Error: NSError {
         
-        class var Domain: String { return NSBundle(forClass: classForCoder()).bundleIdentifier! + ".ResponseImageDeserializerError" }
+        public class var Domain: String { return NSBundle(forClass: classForCoder()).bundleIdentifier! + ".ResponseImageDeserializerError" }
         
         init() {
             super.init(
@@ -34,7 +34,7 @@ class ResponseImageDeserializer: ResponseDeserializer {
             )
         }
         
-        required init(coder aDecoder: NSCoder) {
+        public required init(coder aDecoder: NSCoder) {
             super.init(coder: aDecoder)
         }
         

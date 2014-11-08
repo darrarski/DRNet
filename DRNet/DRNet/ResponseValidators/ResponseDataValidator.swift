@@ -8,13 +8,13 @@
 
 import Foundation
 
-class ResponseDataValidator: ResponseValidator {
+public class ResponseDataValidator: ResponseValidator {
     
-    init() {}
+    public init() {}
     
     // MARK: - ResponseValidator protocol
     
-    func validateResponse(response: Response, forRequest: Request) -> [NSError]? {
+    public func validateResponse(response: Response, forRequest: Request) -> [NSError]? {
         if let data = response.data {
             if let expectedContentLength = response.URLResponse?.expectedContentLength {
                 if (expectedContentLength > -1) {
@@ -33,11 +33,11 @@ class ResponseDataValidator: ResponseValidator {
     
     // MARK: - Error
     
-    class Error: NSError {
+    public class Error: NSError {
         
-        class var Domain: String { return NSBundle(forClass: classForCoder()).bundleIdentifier! + ".ResponseDataValidatorError" }
+        public class var Domain: String { return NSBundle(forClass: classForCoder()).bundleIdentifier! + ".ResponseDataValidatorError" }
         
-        enum Code: Int {
+        public enum Code: Int {
             case EmptyData = 1
             case InvalidDataLength = 2
         }
@@ -50,7 +50,7 @@ class ResponseDataValidator: ResponseValidator {
             )
         }
         
-        required init(coder aDecoder: NSCoder) {
+        public required init(coder aDecoder: NSCoder) {
             super.init(coder: aDecoder)
         }
         

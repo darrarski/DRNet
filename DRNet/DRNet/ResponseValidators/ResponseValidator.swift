@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol ResponseValidator {
+public protocol ResponseValidator {
     
     func validateResponse(response: Response, forRequest: Request) -> [NSError]?
     

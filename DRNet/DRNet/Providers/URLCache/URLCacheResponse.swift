@@ -8,6 +8,6 @@
 
 import Foundation
 
-class URLCacheResponse: Response {
+public class URLCacheResponse: Response {
     
 }

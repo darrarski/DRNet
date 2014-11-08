@@ -8,15 +8,15 @@
 
 import Foundation
 
-class URLCacheProvider: NSObject, Provider {
+public class URLCacheProvider: NSObject, Provider {
     
-    let memoryCapacity: Int
-    let diskCapacity: Int
-    let diskPath: String
+    public let memoryCapacity: Int
+    public let diskCapacity: Int
+    public let diskPath: String
     
-    let memoryCache: NSCache = NSCache()
+    public let memoryCache: NSCache = NSCache()
     
-    init(memoryCapacity: Int, diskCapacity: Int, diskPath: String) {
+    public init(memoryCapacity: Int, diskCapacity: Int, diskPath: String) {
         self.memoryCapacity = memoryCapacity
         self.diskCapacity = diskCapacity
         self.diskPath = diskPath
@@ -29,7 +29,7 @@ class URLCacheProvider: NSObject, Provider {
     
     // MARK: -
     
-    func responseForRequest(request: Request, completion: (response: Response) -> Void) {
+    public func responseForRequest(request: Request, completion: (response: Response) -> Void) {
         let urlRequest = request.toNSURLRequest()
         var response: URLCacheResponse = {
             var response: URLCacheResponse?
@@ -54,7 +54,7 @@ class URLCacheProvider: NSObject, Provider {
         completion(response: response)
     }
     
-    func saveResponse(response: Response, forRequest request: Request) {
+    public func saveResponse(response: Response, forRequest request: Request) {
         if let cacheKey = cacheKeyForRequest(request) {
             let cachedResponse = URLCacheResponse(
                 URLResponse: response.URLResponse,
@@ -68,7 +68,7 @@ class URLCacheProvider: NSObject, Provider {
         }
     }
     
-    func removeAllCachedResponses() {
+    public func removeAllCachedResponses() {
         removeAllResponsesCachedInMemory()
         removeAllResponsesCachedOnDisk()
     }
@@ -135,7 +135,7 @@ class URLCacheProvider: NSObject, Provider {
         }
     }
     
-    lazy var diskCachePath: String = {
+    private lazy var diskCachePath: String = {
         let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.CachesDirectory, NSSearchPathDomainMask.UserDomainMask, true)
         let path = (paths.first! as String).stringByAppendingPathComponent(self.diskPath)
         
@@ -260,7 +260,7 @@ class URLCacheProvider: NSObject, Provider {
     
     // MARK: - Error
     
-    class Error: NSError {
+    public class Error: NSError {
         
         class var Domain: String { return NSBundle(forClass: classForCoder()).bundleIdentifier! + ".URLCacheProviderError" }
         
@@ -276,7 +276,7 @@ class URLCacheProvider: NSObject, Provider {
             )
         }
         
-        required init(coder aDecoder: NSCoder) {
+        public required init(coder aDecoder: NSCoder) {
             super.init(coder: aDecoder)
         }
         

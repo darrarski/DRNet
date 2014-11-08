@@ -8,9 +8,9 @@
 
 import Foundation
 
-class Request {
+public class Request {
     
-    enum Method: String {
+    public enum Method: String {
         case GET = "GET"
         case PUT = "PUT"
         case POST = "POST"
@@ -18,19 +18,19 @@ class Request {
         case PATCH = "PATCH"
     }
     
-    let method: Method
-    let url: NSURL
-    let headers: RequestHeaders?
-    let parameters: RequestParameters?
+    public let method: Method
+    public let url: NSURL
+    public let headers: RequestHeaders?
+    public let parameters: RequestParameters?
     
-    init(method: Method, url: NSURL, headers: RequestHeaders? = nil, parameters: RequestParameters? = nil) {
+    public init(method: Method, url: NSURL, headers: RequestHeaders? = nil, parameters: RequestParameters? = nil) {
         self.method = method
         self.url = url
         self.headers = headers
         self.parameters = parameters
     }
     
-    func toNSURLRequest() -> NSURLRequest {
+    public func toNSURLRequest() -> NSURLRequest {
         var request = NSMutableURLRequest()
         
         request.HTTPMethod = method.rawValue
