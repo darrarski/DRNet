@@ -15,4 +15,10 @@ class TextViewController: UIViewController {
     override convenience init() {
         self.init(nibName: "TextViewControllerView", bundle: nil)
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        textView.text = nil
+    }
 }
