@@ -141,11 +141,9 @@ class Example1ViewController: TextViewController {
         
         let provider = DRNet.URLSessionProvider(session: NSURLSession.sharedSession())
         
-        let task = DRNet.Task(provider: provider)
-        
         operation.perfromRequest(
             request,
-            withTask: task
+            usingProvider: provider
         )
         
     }
