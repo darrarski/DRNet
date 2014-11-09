@@ -35,4 +35,41 @@ class URLCacheProvider_Tests: XCTestCase {
         XCTAssert(provider.diskPath == "TestPath", "Invalid disk path")
     }
     
+    func testSaveAndFetchFromMemory() {
+        testSaveAndFetch(DRNet.URLCacheProvider(memoryCapacity: .Limit(bytes: 10 * 1024), diskCapacity: .Disable, diskPath: "Test"))
+    }
+    
+    func testSaveAndFetchFromDisk() {
+        testSaveAndFetch(DRNet.URLCacheProvider(memoryCapacity: .Disable, diskCapacity: .Limit(bytes: 10 * 1024), diskPath: "Test"))
+    }
+    
+    private func testSaveAndFetch(provider: DRNet.URLCacheProvider) {
+        let request = DRNet.Request(method: .GET, url: NSURL(string: "http://test")!, headers: nil, parameters: nil)
+        let responseDataString = "ResponseTest"
+        let responseData = responseDataString.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)
+        let response = DRNet.Response(URLResponse: nil, data: responseData, error: nil, forURLRequest: request.toNSURLRequest())
+        
+        provider.saveResponse(response, forRequest: request)
+        
+        let expectProviderReturnsCachedResponse = expectationWithDescription("provider returns cached response")
+        
+        provider.responseForRequest(request, completion: { (cachedResponse) -> Void in
+            if let cachedResponseData = cachedResponse.data {
+                if let cachedResponseDataString = NSString(data: cachedResponseData, encoding: NSUTF8StringEncoding) {
+                    XCTAssert(cachedResponseDataString == responseDataString, "cached response data string differs from response data string")
+                }
+                else {
+                    XCTFail("cached response data cannot be converted to string")
+                }
+            }
+            else {
+                XCTFail("cached response data is empty")
+            }
+            
+            expectProviderReturnsCachedResponse.fulfill()
+        })
+        
+        waitForExpectationsWithTimeout(3, handler: { (error) -> Void in })
+    }
+    
 }
