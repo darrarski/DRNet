@@ -18,11 +18,21 @@ import DRNet
 class URLCacheProvider_Tests: XCTestCase {
     
     func testInit() {
-        let provider = DRNet.URLCacheProvider(memoryCapacity: 1024, diskCapacity: 2048, diskPath: "Test")
+        let provider = DRNet.URLCacheProvider(memoryCapacity: .Limit(bytes: 1024), diskCapacity: .Limit(bytes: 2048), diskPath: "TestPath")
         
-        XCTAssert(provider.memoryCapacity == 1024, "Invalid memory capacity")
-        XCTAssert(provider.diskCapacity == 2048, "Invalid disk capacity")
-        XCTAssert(provider.diskPath == "Test", "Invalid disk path")
+        switch provider.memoryCapacity {
+        case .Limit(bytes: 1024): ()
+        default:
+            XCTFail("Invalid memory capacity")
+        }
+        
+        switch provider.diskCapacity {
+        case .Limit(bytes: 2048): ()
+        default:
+            XCTFail("Invalid disk capacity")
+        }
+        
+        XCTAssert(provider.diskPath == "TestPath", "Invalid disk path")
     }
     
 }
