@@ -25,7 +25,7 @@ class Example1ViewController: TextViewController {
     
     func runExample() {
         
-        textView.text = "Loading weather data..."
+        textView.text = "Loading JSON using GET request with query string parameters.\n\n"
         
         let request = DRNet.Request(
             method: .GET,
@@ -67,6 +67,8 @@ class Example1ViewController: TextViewController {
                     )
                 }
                 else {
+                    output += "Completed without errors.\n\n"
+                    
                     var placeName: String = "N/A"
                     var countryCode: String = "N/A"
                     var currentTemp: Float?
@@ -110,7 +112,7 @@ class Example1ViewController: TextViewController {
                         }
                     }
                     
-                    output += "Current weather in \(placeName), \(countryCode):\n\n"
+                    output += "Current weather in \(placeName), \(countryCode):\n"
                     
                     if let currentTemp = currentTemp {
                         output += "Temperature: \(currentTemp) C\n"
@@ -130,8 +132,9 @@ class Example1ViewController: TextViewController {
                 }
                 
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    self?.textView.text = output
-                    return
+                    if let sself = self {
+                        sself.textView.text = sself.textView.text + output
+                    }
                 })
             }
         )
