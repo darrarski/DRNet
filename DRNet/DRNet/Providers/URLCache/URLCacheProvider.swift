@@ -10,21 +10,46 @@ import Foundation
 
 public class URLCacheProvider: NSObject, Provider {
     
-    public let memoryCapacity: Int
-    public let diskCapacity: Int
+    public enum MemoryCapacity {
+        case Disable
+        case Limit(bytes: Int)
+        case NoLimit
+    }
+    
+    public enum DiskCapacity {
+        case Disable
+        case Limit(bytes: Int)
+    }
+    
+    public let memoryCapacity: MemoryCapacity
+    public let diskCapacity: DiskCapacity
     public let diskPath: String
     
     public let memoryCache: NSCache = NSCache()
     
-    public init(memoryCapacity: Int, diskCapacity: Int, diskPath: String) {
+    public init(memoryCapacity: MemoryCapacity, diskCapacity: DiskCapacity, diskPath: String) {
         self.memoryCapacity = memoryCapacity
         self.diskCapacity = diskCapacity
         self.diskPath = diskPath
+        
         super.init()
-        self.memoryCache.totalCostLimit = memoryCapacity
+        
+        switch memoryCapacity {
+        case .Disable: ()
+        case .NoLimit:
+            self.memoryCache.totalCostLimit = 0
+        case .Limit(let bytes):
+            assert(bytes > 0, "invalid memory capacity, .Limit value should be graten than zero or use .Disable")
+            self.memoryCache.totalCostLimit = bytes
+        }
         self.memoryCache.evictsObjectsWithDiscardedContent = true
         
-        maintainDiskCache()
+        switch diskCapacity {
+        case .Disable: ()
+        case .Limit(let bytes):
+            assert(bytes > 0, "invalid disk capacity, .Limit value should be graten than zero or use .Disable")
+            maintainDiskCache()
+        }
     }
     
     // MARK: -
@@ -76,8 +101,11 @@ public class URLCacheProvider: NSObject, Provider {
     // MARK: - Memory Caching
     
     private func responseFromMemoryCache(cacheKey: String) -> URLCacheResponse? {
+        if !isMemoryCacheEnabled {
+            return nil
+        }
+        
         var response: URLCacheResponse?
-
         let data = self.memoryCache.objectForKey(cacheKey) as? NSData
         if let data = data {
             response = unarchiveResponse(data)
@@ -87,6 +115,10 @@ public class URLCacheProvider: NSObject, Provider {
     }
     
     private func saveResponseInMemoryCache(response: URLCacheResponse, cacheKey: String) {
+        if !isMemoryCacheEnabled {
+            return
+        }
+        
         let data = archiveResponse(response)
         memoryCache.setObject(data, forKey: cacheKey, cost: data.length)
     }
@@ -104,6 +136,10 @@ public class URLCacheProvider: NSObject, Provider {
     // MARK: - Disk Caching
     
     private func responseFromDiskCache(cacheKey: String) -> URLCacheResponse? {
+        if !isDiskCacheEnabled {
+            return nil
+        }
+        
         var response: URLCacheResponse?
         
         let dataPath = diskCachePath.stringByAppendingPathComponent(cacheKey)
@@ -115,6 +151,10 @@ public class URLCacheProvider: NSObject, Provider {
     }
     
     private func saveResponseInDiskCache(response: URLCacheResponse, cacheKey: String) {
+        if !isDiskCacheEnabled {
+            return
+        }
+        
         let data = archiveResponse(response)
         let dataPath = diskCachePath.stringByAppendingPathComponent(cacheKey)
         
@@ -138,18 +178,23 @@ public class URLCacheProvider: NSObject, Provider {
     private lazy var diskCachePath: String = {
         let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.CachesDirectory, NSSearchPathDomainMask.UserDomainMask, true)
         let path = (paths.first! as String).stringByAppendingPathComponent(self.diskPath)
-        
-        let fileManager = NSFileManager.defaultManager()
-        var isDirectory: ObjCBool = false
-        let fileExist = fileManager.fileExistsAtPath(path, isDirectory: &isDirectory)
-        if !fileExist || !isDirectory {
-            fileManager.createDirectoryAtPath(path, withIntermediateDirectories: true, attributes: nil, error: nil)
-        }
-        
         return path
     }()
     
+    private func createDiskCacheDirectory() {
+        let fileManager = NSFileManager.defaultManager()
+        var isDirectory: ObjCBool = false
+        let fileExist = fileManager.fileExistsAtPath(diskCachePath, isDirectory: &isDirectory)
+        if !fileExist || !isDirectory {
+            fileManager.createDirectoryAtPath(diskCachePath, withIntermediateDirectories: true, attributes: nil, error: nil)
+        }
+    }
+    
     private func maintainDiskCache() {
+        if !isDiskCacheEnabled {
+            return
+        }
+        
         let fileManager = NSFileManager.defaultManager()
         
         let fileURLs = fileManager.contentsOfDirectoryAtURL(
@@ -190,7 +235,14 @@ public class URLCacheProvider: NSObject, Provider {
                 return (first.modificationDate.compare(second.modificationDate) == .OrderedDescending)
             })
             
-            while totalSize > diskCapacity {
+            let diskCapacityInBytes: Int = {
+                switch self.diskCapacity {
+                case .Disable: return 0
+                case .Limit(let bytes): return bytes
+                }
+            }()
+            
+            while totalSize > diskCapacityInBytes {
                 if let oldestFile = files.last {
                     oldestFile.removeUsingFileManager(fileManager)
                     totalSize -= oldestFile.size
@@ -204,6 +256,20 @@ public class URLCacheProvider: NSObject, Provider {
     }
     
     // MARK: - Helpers
+    
+    private var isMemoryCacheEnabled: Bool {
+        switch memoryCapacity {
+        case .Disable: return false
+        default: return true
+        }
+    }
+    
+    private var isDiskCacheEnabled: Bool {
+        switch diskCapacity {
+        case .Disable: return false
+        default: return true
+        }
+    }
     
     private func cacheKeyForRequest(request: Request) -> String? {
         let urlRequest = request.toNSURLRequest()
