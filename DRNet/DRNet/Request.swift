@@ -16,6 +16,8 @@ public class Request {
         case POST = "POST"
         case DELETE = "DELETE"
         case PATCH = "PATCH"
+        
+        public static let allMethods: [Method] = [.GET, .PUT, .POST, .DELETE, .PATCH]
     }
     
     public let method: Method
