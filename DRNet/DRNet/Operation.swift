@@ -27,6 +27,11 @@ public class Operation {
         self.handlerClosure = handlerClosure
     }
     
+    public func perfromRequest(request: Request, usingProvider provider: Provider, onError: OnErrorClosure? = nil, onSuccess: OnSuccessClosure? = nil, onComplete: OnCompleteClosure? = nil) {
+        let task = Task(provider: provider)
+        perfromRequest(request, withTask: task, onError: onError, onSuccess: onSuccess, onComplete: onComplete)
+    }
+    
     public func perfromRequest(request: Request, withTask task: Task, onError: OnErrorClosure? = nil, onSuccess: OnSuccessClosure? = nil, onComplete: OnCompleteClosure? = nil) {
             
         task.performRequest(request, completion: { (response) -> Void in
