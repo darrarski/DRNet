@@ -158,7 +158,10 @@ public class URLCacheProvider: NSObject, Provider {
         let data = archiveResponse(response)
         let dataPath = diskCachePath.stringByAppendingPathComponent(cacheKey)
         
+        createDiskCacheDirectory()
+        
         data.writeToFile(dataPath, options: NSDataWritingOptions.DataWritingAtomic, error: nil)
+        
         maintainDiskCache()
     }
     
