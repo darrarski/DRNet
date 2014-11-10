@@ -15,6 +15,8 @@
 		314FF46519F5B23300A60FB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 314FF46319F5B23300A60FB8 /* Main.storyboard */; };
 		314FF46719F5B23300A60FB8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 314FF46619F5B23300A60FB8 /* Images.xcassets */; };
 		314FF46A19F5B23300A60FB8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 314FF46819F5B23300A60FB8 /* LaunchScreen.xib */; };
+		315544D81A1148C300B50432 /* ImageTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315544D71A1148C300B50432 /* ImageTextViewController.swift */; };
+		315544DA1A1148F200B50432 /* ImageTextViewControllerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 315544D91A1148F200B50432 /* ImageTextViewControllerView.xib */; };
 		3192091919F5E570001E41ED /* DRNet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3192091819F5E570001E41ED /* DRNet.framework */; };
 		3192091A19F5E570001E41ED /* DRNet.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3192091819F5E570001E41ED /* DRNet.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		31D2AC101A10331E00DE6116 /* MenuItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31D2AC0F1A10331E00DE6116 /* MenuItemCell.xib */; };
@@ -46,6 +48,8 @@
 		314FF46419F5B23300A60FB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		314FF46619F5B23300A60FB8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		314FF46919F5B23300A60FB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		315544D71A1148C300B50432 /* ImageTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageTextViewController.swift; sourceTree = "<group>"; };
+		315544D91A1148F200B50432 /* ImageTextViewControllerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageTextViewControllerView.xib; sourceTree = "<group>"; };
 		3192091819F5E570001E41ED /* DRNet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DRNet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		31D2AC0F1A10331E00DE6116 /* MenuItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuItemCell.xib; sourceTree = "<group>"; };
 		31D2AC111A10332700DE6116 /* MenuItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemCell.swift; sourceTree = "<group>"; };
@@ -66,6 +70,8 @@
 		310A99D41A101BD900F72858 /* GenericViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				315544D71A1148C300B50432 /* ImageTextViewController.swift */,
+				315544D91A1148F200B50432 /* ImageTextViewControllerView.xib */,
 				310A99D51A101C0900F72858 /* TextViewController.swift */,
 				310A99D91A101E6900F72858 /* TextViewControllerView.xib */,
 			);
@@ -212,6 +218,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				315544DA1A1148F200B50432 /* ImageTextViewControllerView.xib in Resources */,
 				314FF46519F5B23300A60FB8 /* Main.storyboard in Resources */,
 				31D2AC101A10331E00DE6116 /* MenuItemCell.xib in Resources */,
 				314FF46A19F5B23300A60FB8 /* LaunchScreen.xib in Resources */,
@@ -230,6 +237,7 @@
 				310A99D31A100D5800F72858 /* MenuViewController.swift in Sources */,
 				314FF46019F5B23300A60FB8 /* AppDelegate.swift in Sources */,
 				310A99D61A101C0900F72858 /* TextViewController.swift in Sources */,
+				315544D81A1148C300B50432 /* ImageTextViewController.swift in Sources */,
 				31D2AC121A10332700DE6116 /* MenuItemCell.swift in Sources */,
 				310A99D81A101D4F00F72858 /* Example1ViewController.swift in Sources */,
 			);
