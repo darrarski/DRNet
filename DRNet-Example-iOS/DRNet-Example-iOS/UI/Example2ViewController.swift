@@ -32,8 +32,18 @@ class Example2ViewController: ImageTextViewController {
         
         imageView.loadImageFromURL(
             NSURL(string: "http://placekitten.com/g/1024/512")!,
-            onLoadFromCacheSuccess: { [weak self] () -> Void in
-                self?.logText("Successfully loaded from cache.")
+            onLoadFromCacheSuccess: { [weak self] (source: DRNet.URLCacheResponse.Source) -> Void in
+                let sourceString: String = {
+                    switch source {
+                    case .Unknown:
+                        return "unknown source"
+                    case .MemoryCache:
+                        return "memory"
+                    case .DiskCache:
+                        return "disk"
+                    }
+                }()
+                self?.logText("Successfully loaded from cache (\(sourceString)).")
                 return
             },
             onLoadFromCacheFailure: { [weak self] (errors) -> Void in
@@ -162,7 +172,7 @@ private let ImageViewCacheProvider = DRNet.URLCacheProvider(
 extension UIImageView {
     
     func loadImageFromURL(url: NSURL,
-        onLoadFromCacheSuccess: () -> Void,
+        onLoadFromCacheSuccess: (source: DRNet.URLCacheResponse.Source) -> Void,
         onLoadFromCacheFailure: (errors: [NSError]) -> Void,
         onLoadFromNetworkSuccess: () -> Void,
         onLoadFromNetworkFailure: (errors: [NSError]) -> Void,
@@ -203,7 +213,7 @@ extension UIImageView {
             },
             onSuccess: { (response, deserializedData, shouldHandle) -> Void in
                 loadedFromCache = true
-                onLoadFromCacheSuccess()
+                onLoadFromCacheSuccess(source: (response as DRNet.URLCacheResponse).source)
             },
             onComplete: { (response, deserializedData, errors) -> Void in
                 operation.perfromRequest(request,
