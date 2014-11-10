@@ -62,9 +62,11 @@ public class URLCacheProvider: NSObject, Provider {
             if let cacheKey = self.cacheKeyForRequest(request) {
                 if let responseFromMemoryCache = self.responseFromMemoryCache(cacheKey) {
                     response = responseFromMemoryCache
+                    response?.source = .MemoryCache
                 }
                 else if let responseFromDiskCache = self.responseFromDiskCache(cacheKey) {
                     response = responseFromDiskCache
+                    response?.source = .DiskCache
                 }
             }
             

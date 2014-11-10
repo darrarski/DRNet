@@ -10,4 +10,12 @@ import Foundation
 
 public class URLCacheResponse: Response {
     
+    public enum Source: Int {
+        case Unknown
+        case MemoryCache
+        case DiskCache
+    }
+    
+    public var source: Source = .Unknown
+    
 }
