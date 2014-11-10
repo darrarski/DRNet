@@ -8,6 +8,10 @@
 
 import Foundation
 
+#if os(iOS)
+    import UIKit
+#endif
+
 public class URLCacheProvider: NSObject, Provider {
     
     public enum MemoryCapacity {
@@ -41,6 +45,18 @@ public class URLCacheProvider: NSObject, Provider {
         case .Limit(let bytes):
             assert(bytes > 0, "Invalid memory capacity, .Limit's bytes value should be greater than zero or use .Disable")
             self.memoryCache.totalCostLimit = bytes
+            
+            #if os(iOS)
+                memoryWarningObserver = NSNotificationCenter.defaultCenter().addObserverForName(
+                    UIApplicationDidReceiveMemoryWarningNotification,
+                    object: UIApplication.sharedApplication(),
+                    queue: nil,
+                    usingBlock: { [weak self] (notification) -> Void in
+                        self?.removeAllResponsesCachedInMemory()
+                        return
+                    }
+                )
+            #endif
         }
         self.memoryCache.evictsObjectsWithDiscardedContent = true
         
@@ -52,7 +68,15 @@ public class URLCacheProvider: NSObject, Provider {
         }
     }
     
+    deinit {
+        if let observer: AnyObject = memoryWarningObserver {
+            NSNotificationCenter.defaultCenter().removeObserver(observer)
+        }
+    }
+    
     // MARK: -
+    
+    private let memoryWarningObserver: AnyObject?
     
     public func responseForRequest(request: Request, completion: (response: Response) -> Void) {
         let urlRequest = request.toNSURLRequest()
