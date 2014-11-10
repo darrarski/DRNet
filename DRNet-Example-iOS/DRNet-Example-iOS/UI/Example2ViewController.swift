@@ -31,9 +31,9 @@ class Example2ViewController: ImageTextViewController {
         label.text = "UIImageView extension with remote image loader that supports caching and offline mode."
         
         imageView.loadImageFromURL(
-            NSURL(string: "http://placekitten.com/g/400/200")!,
+            NSURL(string: "http://placekitten.com/g/1024/512")!,
             onLoadFromCacheSuccess: { [weak self] () -> Void in
-                self?.logText("Successfully loaded from cache")
+                self?.logText("Successfully loaded from cache.")
                 return
             },
             onLoadFromCacheFailure: { [weak self] (errors) -> Void in
@@ -41,7 +41,7 @@ class Example2ViewController: ImageTextViewController {
                 self?.logErrors(errors)
             },
             onLoadFromNetworkSuccess: { [weak self] () -> Void in
-                self?.logText("Successfully loaded from network")
+                self?.logText("Successfully loaded from network.")
                 return
             },
             onLoadFromNetworkFailure: { [weak self] (errors) -> Void in
