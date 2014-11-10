@@ -22,6 +22,14 @@ class MenuViewController: UITableViewController {
                         menuViewController.navigationController?.pushViewController(viewController, animated: true)
                     }
                 ),
+                MenuItem(
+                    title: "Example 2",
+                    subtitle: "UIImageView subclass with remote image loader that supports caching and offline mode",
+                    action: { (menuViewController) -> Void in
+                        let viewController = Example2ViewController()
+                        menuViewController.navigationController?.pushViewController(viewController, animated: true)
+                    }
+                ),
             ]
         ),
     ]
