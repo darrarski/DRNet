@@ -17,6 +17,8 @@
 		314FF46A19F5B23300A60FB8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 314FF46819F5B23300A60FB8 /* LaunchScreen.xib */; };
 		3192091919F5E570001E41ED /* DRNet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3192091819F5E570001E41ED /* DRNet.framework */; };
 		3192091A19F5E570001E41ED /* DRNet.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 3192091819F5E570001E41ED /* DRNet.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		31D2AC101A10331E00DE6116 /* MenuItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 31D2AC0F1A10331E00DE6116 /* MenuItemCell.xib */; };
+		31D2AC121A10332700DE6116 /* MenuItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D2AC111A10332700DE6116 /* MenuItemCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -45,6 +47,8 @@
 		314FF46619F5B23300A60FB8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		314FF46919F5B23300A60FB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		3192091819F5E570001E41ED /* DRNet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DRNet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		31D2AC0F1A10331E00DE6116 /* MenuItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuItemCell.xib; sourceTree = "<group>"; };
+		31D2AC111A10332700DE6116 /* MenuItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +124,7 @@
 				314FF46819F5B23300A60FB8 /* LaunchScreen.xib */,
 				314FF46319F5B23300A60FB8 /* Main.storyboard */,
 				310A99D21A100D5800F72858 /* MenuViewController.swift */,
+				31D2AC0E1A10330000DE6116 /* Views */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -138,6 +143,15 @@
 				3192091819F5E570001E41ED /* DRNet.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		31D2AC0E1A10330000DE6116 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				31D2AC111A10332700DE6116 /* MenuItemCell.swift */,
+				31D2AC0F1A10331E00DE6116 /* MenuItemCell.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +213,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				314FF46519F5B23300A60FB8 /* Main.storyboard in Resources */,
+				31D2AC101A10331E00DE6116 /* MenuItemCell.xib in Resources */,
 				314FF46A19F5B23300A60FB8 /* LaunchScreen.xib in Resources */,
 				310A99DA1A101E6900F72858 /* TextViewControllerView.xib in Resources */,
 				314FF46719F5B23300A60FB8 /* Images.xcassets in Resources */,
@@ -215,6 +230,7 @@
 				310A99D31A100D5800F72858 /* MenuViewController.swift in Sources */,
 				314FF46019F5B23300A60FB8 /* AppDelegate.swift in Sources */,
 				310A99D61A101C0900F72858 /* TextViewController.swift in Sources */,
+				31D2AC121A10332700DE6116 /* MenuItemCell.swift in Sources */,
 				310A99D81A101D4F00F72858 /* Example1ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -16,6 +16,7 @@ class MenuViewController: UITableViewController {
             items: [
                 MenuItem(
                     title: "Example 1",
+                    subtitle: "Loading JSON using GET request with query string parameters",
                     action: { (menuViewController) -> Void in
                         let viewController = Example1ViewController()
                         menuViewController.navigationController?.pushViewController(viewController, animated: true)
@@ -43,10 +44,12 @@ class MenuViewController: UITableViewController {
         typealias Action = (menuViewController: MenuViewController) -> Void
         
         let title: String
+        let subtitle: String
         let action: Action
         
-        init(title: String, action: Action) {
+        init(title: String, subtitle: String, action: Action) {
             self.title = title
+            self.subtitle = subtitle
             self.action = action
         }
     }
@@ -57,6 +60,10 @@ class MenuViewController: UITableViewController {
         super.viewDidLoad()
         
         navigationItem.title = "DRNet iOS Examples"
+        
+        tableView.registerNib(UINib(nibName: "MenuItemCell", bundle: nil), forCellReuseIdentifier: "MenuItemCell")
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = UITableViewAutomaticDimension
     }
     
     // MARK: - UITableViewDataSource
@@ -70,8 +77,9 @@ class MenuViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("MenuItem", forIndexPath: indexPath) as UITableViewCell
-        cell.textLabel.text = menu[indexPath.section].items[indexPath.row].title
+        let cell = tableView.dequeueReusableCellWithIdentifier("MenuItemCell", forIndexPath: indexPath) as MenuItemCell
+        cell.titleLabel.text = menu[indexPath.section].items[indexPath.row].title
+        cell.subtitleLabel?.text = menu[indexPath.section].items[indexPath.row].subtitle
         return cell
     }
     
