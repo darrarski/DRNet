@@ -36,14 +36,14 @@ class Example2ViewController: ImageTextViewController {
                 let sourceString: String = {
                     switch source {
                     case .Unknown:
-                        return "unknown source"
+                        return "unknown"
                     case .MemoryCache:
                         return "memory"
                     case .DiskCache:
                         return "disk"
                     }
                 }()
-                self?.logText("Successfully loaded from cache (\(sourceString)).")
+                self?.logText("Successfully loaded from \(sourceString) cache.")
                 return
             },
             onLoadFromCacheFailure: { [weak self] (errors) -> Void in
