@@ -26,6 +26,9 @@ class Example2ViewController: ImageTextViewController {
     
     func runExample() {
         
+        // remove all cached responses in iOS shared URL cache, to assure DRNet caching works
+        NSURLCache.sharedURLCache().removeAllCachedResponses()
+        
         exampleInProgress = true
         
         label.text = "UIImageView extension with remote image loader that supports caching and offline mode."
