@@ -30,7 +30,11 @@ class Example1ViewController: TextViewController {
         let request = DRNet.Request(
             method: .GET,
             url: NSURL(string: "http://api.openweathermap.org/data/2.5/weather")!,
-            headers: nil,
+            headers: DRNet.RequestStandardHeaders(
+                [
+                    "Accept": "application/json"
+                ]
+            ),
             parameters: DRNet.RequestQueryStringParameters(
                 [
                     "q": "Warsaw,pl"
