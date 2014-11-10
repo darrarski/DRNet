@@ -39,7 +39,7 @@ public class URLCacheProvider: NSObject, Provider {
         case .NoLimit:
             self.memoryCache.totalCostLimit = 0
         case .Limit(let bytes):
-            assert(bytes > 0, "invalid memory capacity, .Limit value should be graten than zero or use .Disable")
+            assert(bytes > 0, "Invalid memory capacity, .Limit's bytes value should be greater than zero or use .Disable")
             self.memoryCache.totalCostLimit = bytes
         }
         self.memoryCache.evictsObjectsWithDiscardedContent = true
@@ -47,7 +47,7 @@ public class URLCacheProvider: NSObject, Provider {
         switch diskCapacity {
         case .Disable: ()
         case .Limit(let bytes):
-            assert(bytes > 0, "invalid disk capacity, .Limit value should be graten than zero or use .Disable")
+            assert(bytes > 0, "Invalid disk capacity, .Limit's bytes value should be greater than zero or use .Disable")
             maintainDiskCache()
         }
     }
