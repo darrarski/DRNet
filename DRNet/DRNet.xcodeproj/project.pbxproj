@@ -39,7 +39,7 @@
 		31230B1E1A0DAFCA006FA9C7 /* RequestQueryStringParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31230AF81A0DAFCA006FA9C7 /* RequestQueryStringParameters.swift */; };
 		31230B1F1A0DAFCA006FA9C7 /* ResponseDeserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31230AFA1A0DAFCA006FA9C7 /* ResponseDeserializer.swift */; };
 		31230B201A0DAFCA006FA9C7 /* ResponseDeserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31230AFA1A0DAFCA006FA9C7 /* ResponseDeserializer.swift */; };
-		31230B211A0DAFCA006FA9C7 /* ResponseImageDeserializer_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31230AFB1A0DAFCA006FA9C7 /* ResponseImageDeserializer_iOS.swift */; };
+		31230B211A0DAFCA006FA9C7 /* ResponseImageDeserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31230AFB1A0DAFCA006FA9C7 /* ResponseImageDeserializer.swift */; };
 		31230B231A0DAFCA006FA9C7 /* ResponseJSONDeserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31230AFC1A0DAFCA006FA9C7 /* ResponseJSONDeserializer.swift */; };
 		31230B241A0DAFCA006FA9C7 /* ResponseJSONDeserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31230AFC1A0DAFCA006FA9C7 /* ResponseJSONDeserializer.swift */; };
 		31230B251A0DAFCA006FA9C7 /* ResponseDataValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31230AFE1A0DAFCA006FA9C7 /* ResponseDataValidator.swift */; };
@@ -48,9 +48,9 @@
 		31230B281A0DAFCA006FA9C7 /* ResponseStatusCodeValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31230AFF1A0DAFCA006FA9C7 /* ResponseStatusCodeValidator.swift */; };
 		31230B291A0DAFCA006FA9C7 /* ResponseValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31230B001A0DAFCA006FA9C7 /* ResponseValidator.swift */; };
 		31230B2A1A0DAFCA006FA9C7 /* ResponseValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31230B001A0DAFCA006FA9C7 /* ResponseValidator.swift */; };
-		31230B331A0DB626006FA9C7 /* ResponseImageDeserializer_OSX.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31230B311A0DB626006FA9C7 /* ResponseImageDeserializer_OSX.swift */; };
 		314FF4E119F5B75600A60FB8 /* DRNet_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 314FF4E019F5B75600A60FB8 /* DRNet_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		314FF50119F5B8BB00A60FB8 /* DRNet_OSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 314FF50019F5B8BB00A60FB8 /* DRNet_OSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		315544DD1A11575100B50432 /* ResponseImageDeserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31230AFB1A0DAFCA006FA9C7 /* ResponseImageDeserializer.swift */; };
 		3176C79F1A0DC0A400B773E6 /* DRNet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 314FF4DB19F5B75600A60FB8 /* DRNet.framework */; };
 		3176C7BA1A0DC28A00B773E6 /* DRNet_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3176C7B81A0DC28600B773E6 /* DRNet_Tests.swift */; };
 		3176C7C61A0DC42600B773E6 /* DRNet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 314FF4FC19F5B8BB00A60FB8 /* DRNet.framework */; };
@@ -95,14 +95,13 @@
 		31230AF71A0DAFCA006FA9C7 /* RequestParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = RequestParameters.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		31230AF81A0DAFCA006FA9C7 /* RequestQueryStringParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = RequestQueryStringParameters.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		31230AFA1A0DAFCA006FA9C7 /* ResponseDeserializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ResponseDeserializer.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		31230AFB1A0DAFCA006FA9C7 /* ResponseImageDeserializer_iOS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ResponseImageDeserializer_iOS.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		31230AFB1A0DAFCA006FA9C7 /* ResponseImageDeserializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ResponseImageDeserializer.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		31230AFC1A0DAFCA006FA9C7 /* ResponseJSONDeserializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ResponseJSONDeserializer.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		31230AFE1A0DAFCA006FA9C7 /* ResponseDataValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ResponseDataValidator.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		31230AFF1A0DAFCA006FA9C7 /* ResponseStatusCodeValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ResponseStatusCodeValidator.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		31230B001A0DAFCA006FA9C7 /* ResponseValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ResponseValidator.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		31230B2B1A0DB0A1006FA9C7 /* DRNet_iOS_Bridging_Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRNet_iOS_Bridging_Header.h; sourceTree = "<group>"; };
 		31230B2C1A0DB0B7006FA9C7 /* DRNet_OSX_Bridging_Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRNet_OSX_Bridging_Header.h; sourceTree = "<group>"; };
-		31230B311A0DB626006FA9C7 /* ResponseImageDeserializer_OSX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseImageDeserializer_OSX.swift; sourceTree = "<group>"; };
 		314FF4DB19F5B75600A60FB8 /* DRNet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DRNet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		314FF4DF19F5B75600A60FB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		314FF4E019F5B75600A60FB8 /* DRNet_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRNet_iOS.h; sourceTree = "<group>"; };
@@ -204,8 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				31230AFA1A0DAFCA006FA9C7 /* ResponseDeserializer.swift */,
-				31230AFB1A0DAFCA006FA9C7 /* ResponseImageDeserializer_iOS.swift */,
-				31230B311A0DB626006FA9C7 /* ResponseImageDeserializer_OSX.swift */,
+				31230AFB1A0DAFCA006FA9C7 /* ResponseImageDeserializer.swift */,
 				31230AFC1A0DAFCA006FA9C7 /* ResponseJSONDeserializer.swift */,
 			);
 			path = ResponseDeserializers;
@@ -516,7 +514,7 @@
 				31230B291A0DAFCA006FA9C7 /* ResponseValidator.swift in Sources */,
 				31230B0D1A0DAFCA006FA9C7 /* URLCacheResponse.swift in Sources */,
 				31230B0B1A0DAFCA006FA9C7 /* URLCacheProvider.swift in Sources */,
-				31230B211A0DAFCA006FA9C7 /* ResponseImageDeserializer_iOS.swift in Sources */,
+				31230B211A0DAFCA006FA9C7 /* ResponseImageDeserializer.swift in Sources */,
 				31230B071A0DAFCA006FA9C7 /* Task.swift in Sources */,
 				31230B191A0DAFCA006FA9C7 /* RequestJSONParameters.swift in Sources */,
 				31230B011A0DAFCA006FA9C7 /* Operation.swift in Sources */,
@@ -542,13 +540,13 @@
 			files = (
 				31230B041A0DAFCA006FA9C7 /* Request.swift in Sources */,
 				31230B2A1A0DAFCA006FA9C7 /* ResponseValidator.swift in Sources */,
-				31230B331A0DB626006FA9C7 /* ResponseImageDeserializer_OSX.swift in Sources */,
 				31230B0E1A0DAFCA006FA9C7 /* URLCacheResponse.swift in Sources */,
 				31230B0C1A0DAFCA006FA9C7 /* URLCacheProvider.swift in Sources */,
 				31230B081A0DAFCA006FA9C7 /* Task.swift in Sources */,
 				31230B1A1A0DAFCA006FA9C7 /* RequestJSONParameters.swift in Sources */,
 				31230B021A0DAFCA006FA9C7 /* Operation.swift in Sources */,
 				31230B121A0DAFCA006FA9C7 /* URLSessionResponse.swift in Sources */,
+				315544DD1A11575100B50432 /* ResponseImageDeserializer.swift in Sources */,
 				31230B101A0DAFCA006FA9C7 /* URLSessionProvider.swift in Sources */,
 				31230B201A0DAFCA006FA9C7 /* ResponseDeserializer.swift in Sources */,
 				31230B161A0DAFCA006FA9C7 /* RequestStandardHeaders.swift in Sources */,

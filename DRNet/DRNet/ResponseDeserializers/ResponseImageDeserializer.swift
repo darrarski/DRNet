@@ -1,22 +1,36 @@
 //
-//  ResponseImageDeserializer_OSX.swift
+//  ResponseImageDeserializer.swift
 //  DRNet
 //
-//  Created by Dariusz Rybicki on 08/11/14.
+//  Created by Dariusz Rybicki on 04/11/14.
 //  Copyright (c) 2014 Darrarski. All rights reserved.
 //
 
 import Foundation
-import AppKit
+
+#if os(iOS)
+    import UIKit
+#elseif os(OS_X)
+    import Cocoa
+#endif
 
 public class ResponseImageDeserializer: ResponseDeserializer {
     
+    public init() {}
+    
     public func deserializeResponseData(response: Response) -> (deserializedData: AnyObject?, errors: [NSError]?) {
         if let data = response.data {
-            let image = NSImage(data: data)
-            if let image = image {
-                return (deserializedData: image, errors: nil)
-            }
+            #if os(iOS)
+                let image = UIImage(data: data)
+                if let image = image {
+                    return (deserializedData: image, errors: nil)
+                }
+            #elseif os(OS_X)
+                let image = NSImage(data: data)
+                if let image = image {
+                    return (deserializedData: image, errors: nil)
+                }
+            #endif
         }
         
         return (deserializedData: nil, errors: [Error()])
