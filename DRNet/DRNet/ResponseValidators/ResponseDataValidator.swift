@@ -54,6 +54,22 @@ public class ResponseDataValidator: ResponseValidator {
             super.init(coder: aDecoder)
         }
         
+        // MARK: Description
+        
+        public override var description: String {
+            let codeString: String = {
+                switch Code(rawValue: self.code) {
+                case .Some(.EmptyData):
+                    return "empty data"
+                case .Some(.InvalidDataLength):
+                    return "invalid data length"
+                case .None:
+                    return "unhandled error"
+                }
+            }()
+            return "Expected valid response data, but got \(codeString)"
+        }
+        
     }
     
 }

@@ -76,6 +76,20 @@ public class ResponseStatusCodeValidator: ResponseValidator {
             return userInfo?["statusCode"] as? Int
         }
         
+        // MARK: Description
+        
+        public override var description: String {
+            let statusCodeString: String = {
+                if let statusCode = self.statusCode {
+                    return "\(statusCode)"
+                }
+                else {
+                    return "empty value"
+                }
+            }()
+            return "Expected status code \(expectedStatusCodeRange.startIndex)-\(expectedStatusCodeRange.endIndex), but got \(statusCodeString)"
+        }
+        
     }
     
 }

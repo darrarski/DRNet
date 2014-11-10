@@ -351,6 +351,17 @@ public class URLCacheProvider: NSObject, Provider {
             super.init(coder: aDecoder)
         }
         
+        // MARK: Description
+        
+        public override var description: String {
+            switch Code(rawValue: self.code) {
+            case .Some(.NotFound):
+                return "Response not found in cache"
+            case .None:
+                return "URLCacheProvider unhandled error"
+            }
+        }
+        
     }
     
 }

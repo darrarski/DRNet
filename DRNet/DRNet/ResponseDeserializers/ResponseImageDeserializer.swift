@@ -31,25 +31,45 @@ public class ResponseImageDeserializer: ResponseDeserializer {
                     return (deserializedData: image, errors: nil)
                 }
             #endif
+            
+            return (deserializedData: nil, errors: [Error(code: .DeserializationError)])
         }
         
-        return (deserializedData: nil, errors: [Error()])
+        return (deserializedData: nil, errors: [Error(code: .EmptyData)])
     }
     
     public class Error: NSError {
         
         public class var Domain: String { return NSBundle(forClass: classForCoder()).bundleIdentifier! + ".ResponseImageDeserializerError" }
         
-        init() {
+        public enum Code: Int {
+            case EmptyData = 1
+            case DeserializationError = 2
+        }
+        
+        init(code: Code) {
             super.init(
                 domain: Error.Domain,
-                code: 0,
+                code: code.rawValue,
                 userInfo: nil
             )
         }
         
         public required init(coder aDecoder: NSCoder) {
             super.init(coder: aDecoder)
+        }
+        
+        // MARK: Description
+        
+        public override var description: String {
+            switch Code(rawValue: self.code) {
+            case .Some(.EmptyData):
+                return "Unable to deserialize image from empty response data"
+            case .Some(.DeserializationError):
+                return "Unable to deserialize image from response data"
+            case .None:
+                return "ResponseImageDeserializer unhandled error"
+            }
         }
         
     }
