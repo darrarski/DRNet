@@ -15,6 +15,7 @@ class Example2ViewController: ImageTextViewController {
         super.viewDidLoad()
         
         navigationItem.title = "Example 2"
+        initMenu()
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -24,6 +25,8 @@ class Example2ViewController: ImageTextViewController {
     }
     
     func runExample() {
+        
+        exampleInProgress = true
         
         label.text = "UIImageView extension with remote image loader that supports caching and offline mode."
         
@@ -46,11 +49,64 @@ class Example2ViewController: ImageTextViewController {
                 self?.logErrors(errors)
             },
             onComplete: { [weak self] () -> Void in
-                self?.logText("Done")
-                return
+                self?.logText("Done.\n\nTap on image to open options menu.")
+                self?.exampleInProgress = false
             }
         )
     }
+    
+    // MARK: - Menu
+    
+    private var imageViewTapGestureRecognizer: UITapGestureRecognizer?
+    
+    private func initMenu() {
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: "showMenu")
+        imageView.addGestureRecognizer(gestureRecognizer)
+        imageView.userInteractionEnabled = true
+    }
+    
+    func showMenu() {
+        if exampleInProgress {
+            return
+        }
+        
+        let alertController = UIAlertController(title: "Options", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        
+        alertController.addAction(
+            UIAlertAction(
+                title: "Reload image",
+                style: UIAlertActionStyle.Default,
+                handler: { [weak self] (action) -> Void in
+                    self?.runExample()
+                    return
+                }
+            )
+        )
+        
+        alertController.addAction(
+            UIAlertAction(
+                title: "Clear cache",
+                style: UIAlertActionStyle.Destructive,
+                handler: { (action) -> Void in
+                    ImageViewCacheProvider.removeAllCachedResponses()
+                }
+            )
+        )
+        
+        alertController.addAction(
+            UIAlertAction(
+                title: "Cancel",
+                style: UIAlertActionStyle.Cancel,
+                handler: nil
+            )
+        )
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    // MARK: - Helpers
+    
+    private var exampleInProgress = false
     
     private func logErrors(errors: [NSError]) {
         dispatch_async(dispatch_get_main_queue(), { [weak self] () -> Void in
