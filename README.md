@@ -59,7 +59,7 @@ iOS / OS X networking library written in Swift. Main purpose of this library is 
      
      to `UIImage` or `NSImage`, depending on platform
      
-* Operation
+* `Operation`
     
     Performs `Task` and allows to handle errors or success easily, can be chained to implement custom caching policy
     
