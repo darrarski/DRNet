@@ -35,7 +35,7 @@ iOS / OS X networking library written in Swift. Main purpose of this library is 
     
    Can perform a `Task` and return `Response` for given `Request`
    
-* `RequestValidator`
+* `ResponseValidator`
    
    Validates `Response` and generates errors if it doesn't pass validation.
    
