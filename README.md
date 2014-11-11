@@ -60,9 +60,9 @@ iOS / OS X networking library written in Swift. Main purpose of this library is 
      to `UIImage` or `NSImage`, depending on platform
      
 * Operation
-   
-   Performs `Task` and allows to handle errors or success easily, can be chained to implement custom caching policy
-   
+    
+    Performs `Task` and allows to handle errors or success easily, can be chained to implement custom caching policy
+    
 
 ## Instalation
 
@@ -72,5 +72,12 @@ You can add DRNet library to your project as a git submodule, or just copy it ma
 
 Check out included examples:
 * [iOS: Loading JSON using GET request with query string parameters](DRNet-Example-iOS/DRNet-Example-iOS/UI/Example1ViewController.swift)
-* [iOS: UIImageView extension with remote image loader that supports caching and offline mode](blob/master/DRNet-Example-iOS/DRNet-Example-iOS/UI/Example2ViewController.swift)
+* [iOS: UIImageView extension with remote image loader that supports caching and offline mode](DRNet-Example-iOS/DRNet-Example-iOS/UI/Example2ViewController.swift)
 
+## License
+
+The MIT License (MIT) - check out included [LICENSE](LICENSE) file
+
+## Credits
+
+DRNet library takes some ideas from [Alamofire by Mattt Thompson](https://github.com/Alamofire/Alamofire) with more object oriented architecure and easy extensibility.
