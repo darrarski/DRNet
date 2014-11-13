@@ -18,6 +18,11 @@ public class Operation {
     public let validators: [ResponseValidator] = []
     public let dataDeserializer: ResponseDeserializer? = nil
     public let handlerClosure: HandlerClosure?
+
+    public var aborted: Bool {
+        return _aborted
+    }
+    private var _aborted = false
     
     public init(validators: [ResponseValidator]?, dataDeserializer: ResponseDeserializer?, handlerClosure: HandlerClosure?) {
         if let validators = validators {
@@ -35,6 +40,8 @@ public class Operation {
     public func perfromRequest(request: Request, withTask task: Task, onError: OnErrorClosure? = nil, onSuccess: OnSuccessClosure? = nil, onComplete: OnCompleteClosure? = nil) {
             
         task.performRequest(request, completion: { (response) -> Void in
+            if self.aborted { return }
+
             var deserializedData: AnyObject?
             var errorsSet = NSMutableOrderedSet()
             
@@ -55,6 +62,8 @@ public class Operation {
                     errorsSet.addObjectsFromArray(errors)
                 }
             }
+
+            if self.aborted { return }
             
             var shouldHandle = true
             
@@ -77,6 +86,8 @@ public class Operation {
                     )
                 }
             }
+
+            if self.aborted { return }
             
             let errors = errorsSet.count > 0 ? errorsSet.array as? [NSError] : nil
             
@@ -99,6 +110,10 @@ public class Operation {
                 )
             }
         })
+    }
+
+    public func abort() {
+        _aborted = true
     }
     
 }
