@@ -10,9 +10,9 @@ import Foundation
 
 public class RequestMultipartFormDataParameters: RequestParameters {
     
-    let parameters: [RequestMultipartFormDataParameter]
+    public let parameters: [RequestMultipartFormDataParameter]
     
-    init(parameters: [RequestMultipartFormDataParameter]) {
+    public init(_ parameters: [RequestMultipartFormDataParameter]) {
         self.parameters = parameters
     }
     
@@ -50,7 +50,7 @@ public class RequestMultipartFormDataParameters: RequestParameters {
     }
     
     private func initializeMultipartRequest(request: NSMutableURLRequest, boundary: String) {
-        request.addValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
     }
     
     private func appendStringToMultipartData(data: NSMutableData, boundary: String, name: String, value: String) {
@@ -69,16 +69,28 @@ public class RequestMultipartFormDataParameters: RequestParameters {
     
     // MARK: - Parameter types
     
-    struct FileParameter: RequestMultipartFormDataParameter {
-        let name: String
-        let filename: String
-        let contentType: String
-        let data: NSData
+   public struct FileParameter: RequestMultipartFormDataParameter {
+        public let name: String
+        public let filename: String
+        public let contentType: String
+        public let data: NSData
+    
+        public init(name: String, filename: String, contentType: String, data: NSData) {
+            self.name = name
+            self.filename = filename
+            self.contentType = contentType
+            self.data = data
+        }
     }
     
-    struct StringParameter: RequestMultipartFormDataParameter {
-        let name: String
-        let value: String
+    public struct StringParameter: RequestMultipartFormDataParameter {
+        public let name: String
+        public let value: String
+        
+        public init(name: String, value: String) {
+            self.name = name
+            self.value = value
+        }
     }
     
 }
