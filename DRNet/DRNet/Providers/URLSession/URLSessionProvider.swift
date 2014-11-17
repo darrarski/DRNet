@@ -18,7 +18,7 @@ public class URLSessionProvider: Provider {
     
     public func responseForRequest(request: Request, completion: (response: Response) -> Void) {
         let URLRequest = request.toNSURLRequest()
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(URLRequest) { (data, URLResponse, error) -> Void in
+        let task = session.dataTaskWithRequest(URLRequest) { (data, URLResponse, error) -> Void in
             let response = Response(URLResponse: URLResponse, data: data, error: error, forURLRequest: URLRequest)
             completion(response: response)
         }
