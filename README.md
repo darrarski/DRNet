@@ -35,6 +35,26 @@ iOS / OS X networking library written in Swift. Main purpose of this library is 
     
     Can perform a `Task` and return `Response` for given `Request`
     
+* `RequestParameters`
+     
+     Configures `Request` with given parameters
+     
+    * `RequestQueryStringParameters`
+         
+         Set as URL Query String parameters
+         
+    * `RequestFormURLEncodedParameters`
+         
+         Encoded as HTTP URL Form
+         
+    * `RequestJSONParameters`
+         
+         Encoded as JSON and submitted in request body. Shouldn't be used with `GET` requests.
+         
+    * `RequestMultipartFormDataParameters`
+         
+         Encoded as HTTP Multipart Form Data and submitted in request body. You can set string and file type parameters. Use this class when you want to implement file upload in your app.
+         
 * `ResponseValidator`
     
     Validates `Response` and generates errors if it doesn't pass validation.
