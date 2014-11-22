@@ -34,7 +34,15 @@ iOS / OS X networking library written in Swift. Main purpose of this library is 
 * `Provider`
     
     Can perform a `Task` and return `Response` for given `Request`
-    
+
+* `RequestHeaders`
+     
+     Configures `Request` with given header fields
+     
+     * `RequestStandardHeaders`
+         
+         You can use this class to provide additional headers for your requests
+         
 * `RequestParameters`
      
      Configures `Request` with given parameters
