@@ -20,45 +20,45 @@ iOS / OS X networking library written in Swift. Main purpose of this library is 
 ## Architecture - brief description
 
 * `Request`
-   
-   Describes a request with given method, url, headers and parameters
-   
+    
+    Describes a request with given method, url, headers and parameters
+    
 * `Response`
-   
-   Describes response for given `Request`
-   
+    
+    Describes response for given `Request`
+    
 * `Task`
-   
-   Represents a task that returns `Response` for a `Request` usigng given `Provider`
-   
+    
+    Represents a task that returns `Response` for a `Request` usigng given `Provider`
+    
 * `Provider`
     
-   Can perform a `Task` and return `Response` for given `Request`
-   
+    Can perform a `Task` and return `Response` for given `Request`
+    
 * `ResponseValidator`
-   
-   Validates `Response` and generates errors if it doesn't pass validation.
-   
-   * `ResponseDataValidator`
-     
-     Checks if `Response` constains valid data with correct length
-     
-   * `ResponseStatusCodeValidator`
-     
-     Checks if `Response` has status code in given range
-     
+    
+    Validates `Response` and generates errors if it doesn't pass validation.
+    
+    * `ResponseDataValidator`
+       
+       Checks if `Response` constains valid data with correct length
+       
+    * `ResponseStatusCodeValidator`
+       
+       Checks if `Response` has status code in given range
+       
 * `ResponseDeserializer`
-   
-   Deserializes `Response` data
-   
+    
+    Deserializes `Response` data
+    
     * `ResponseJSONDeserializer`
-      
-     to JSON dictionary
-     
+        
+       to JSON dictionary
+       
     * `ResponseImageDeserializer`
-     
-     to `UIImage` or `NSImage`, depending on platform
-     
+       
+       to `UIImage` or `NSImage`, depending on platform
+       
 * `Operation`
     
     Performs `Task` and allows to handle errors or success easily, can be chained to implement custom caching policy
