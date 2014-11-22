@@ -94,7 +94,7 @@ iOS / OS X networking library written in Swift. Main purpose of this library is 
 
 ## Instalation
 
-You can add DRNet library to your project as a git submodule, or just copy it manualy. The library was prepared to be used as a embedded framework in your app. Refer to example apps for hints.
+You can add DRNet library to your project as a git submodule, or just copy it manualy. The library was prepared to be used as a embedded framework in your app. Refer to example app project for hints.
 
 ## Usage
 
