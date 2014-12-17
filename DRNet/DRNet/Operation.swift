@@ -39,75 +39,77 @@ public class Operation {
     
     public func perfromRequest(request: Request, withTask task: Task, onError: OnErrorClosure? = nil, onSuccess: OnSuccessClosure? = nil, onComplete: OnCompleteClosure? = nil) {
             
-        task.performRequest(request, completion: { (response) -> Void in
-            if self.aborted { return }
+        task.performRequest(request, completion: { [weak self] (response) -> Void in
+            if let sself = self {
+                if sself.aborted { return }
 
-            var deserializedData: AnyObject?
-            var errorsSet = NSMutableOrderedSet()
-            
-            if let error = response.error {
-                errorsSet.addObject(error)
-            }
-            
-            for validator: ResponseValidator in self.validators {
-                if let errors = validator.validateResponse(response, forRequest: request) {
-                    errorsSet.addObjectsFromArray(errors)
+                var deserializedData: AnyObject?
+                var errorsSet = NSMutableOrderedSet()
+                
+                if let error = response.error {
+                    errorsSet.addObject(error)
                 }
-            }
-            
-            if let deserializer = self.dataDeserializer {
-                let (data: AnyObject?, errors) = deserializer.deserializeResponseData(response)
-                deserializedData = data
-                if let errors = errors {
-                    errorsSet.addObjectsFromArray(errors)
+                
+                for validator: ResponseValidator in sself.validators {
+                    if let errors = validator.validateResponse(response, forRequest: request) {
+                        errorsSet.addObjectsFromArray(errors)
+                    }
                 }
-            }
+                
+                if let deserializer = sself.dataDeserializer {
+                    let (data: AnyObject?, errors) = deserializer.deserializeResponseData(response)
+                    deserializedData = data
+                    if let errors = errors {
+                        errorsSet.addObjectsFromArray(errors)
+                    }
+                }
 
-            if self.aborted { return }
-            
-            var shouldHandle = true
-            
-            if errorsSet.count > 0 {
-                if let onError = onError {
-                    onError(
+                if sself.aborted { return }
+                
+                var shouldHandle = true
+                
+                if errorsSet.count > 0 {
+                    if let onError = onError {
+                        onError(
+                            response: response,
+                            deserializedData: deserializedData,
+                            errors: errorsSet.array as [NSError],
+                            shouldHandle: &shouldHandle
+                        )
+                    }
+                }
+                else {
+                    if let onSuccess = onSuccess {
+                        onSuccess(
+                            response: response,
+                            deserializedData: deserializedData,
+                            shouldHandle: &shouldHandle
+                        )
+                    }
+                }
+
+                if sself.aborted { return }
+                
+                let errors = errorsSet.count > 0 ? errorsSet.array as? [NSError] : nil
+                
+                if shouldHandle {
+                    sself.handlerClosure?(
+                        operation: sself,
+                        request: request,
+                        task: task,
                         response: response,
                         deserializedData: deserializedData,
-                        errors: errorsSet.array as [NSError],
-                        shouldHandle: &shouldHandle
+                        errors: errors
                     )
                 }
-            }
-            else {
-                if let onSuccess = onSuccess {
-                    onSuccess(
+                
+                if let onComplete = onComplete {
+                    onComplete(
                         response: response,
                         deserializedData: deserializedData,
-                        shouldHandle: &shouldHandle
+                        errors: errors
                     )
                 }
-            }
-
-            if self.aborted { return }
-            
-            let errors = errorsSet.count > 0 ? errorsSet.array as? [NSError] : nil
-            
-            if shouldHandle {
-                self.handlerClosure?(
-                    operation: self,
-                    request: request,
-                    task: task,
-                    response: response,
-                    deserializedData: deserializedData,
-                    errors: errors
-                )
-            }
-            
-            if let onComplete = onComplete {
-                onComplete(
-                    response: response,
-                    deserializedData: deserializedData,
-                    errors: errors
-                )
             }
         })
     }
