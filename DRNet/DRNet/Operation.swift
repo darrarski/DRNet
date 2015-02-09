@@ -15,8 +15,8 @@ public class Operation {
     public typealias HandlerClosure = (operation: Operation, request: Request, task: Task, response: Response, deserializedData: AnyObject?, errors: [NSError]?) -> Void
     public typealias OnCompleteClosure = (response: Response, deserializedData: AnyObject?, errors: [NSError]?) -> Void
     
-    public let validators: [ResponseValidator] = []
-    public let dataDeserializer: ResponseDeserializer? = nil
+    public let validators: [ResponseValidator]
+    public let dataDeserializer: ResponseDeserializer?
     public let handlerClosure: HandlerClosure?
 
     public var aborted: Bool {
@@ -28,6 +28,10 @@ public class Operation {
         if let validators = validators {
             self.validators = validators
         }
+        else {
+            self.validators = []
+        }
+        
         self.dataDeserializer = dataDeserializer
         self.handlerClosure = handlerClosure
     }
@@ -73,7 +77,7 @@ public class Operation {
                         onError(
                             response: response,
                             deserializedData: deserializedData,
-                            errors: errorsSet.array as [NSError],
+                            errors: errorsSet.array as! [NSError],
                             shouldHandle: &shouldHandle
                         )
                     }

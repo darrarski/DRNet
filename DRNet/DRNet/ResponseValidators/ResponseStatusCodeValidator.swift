@@ -67,8 +67,8 @@ public class ResponseStatusCodeValidator: ResponseValidator {
         
         public var expectedStatusCodeRange: Range<Int> {
             return Range<Int>(
-                start: userInfo!["expectedStatusCodeRangeStart"] as Int,
-                end: userInfo!["expectedStatusCodeRangeEnd"] as Int
+                start: userInfo!["expectedStatusCodeRangeStart"] as! Int,
+                end: userInfo!["expectedStatusCodeRangeEnd"] as! Int
             )
         }
         

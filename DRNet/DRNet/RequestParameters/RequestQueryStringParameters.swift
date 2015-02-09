@@ -19,10 +19,10 @@ public class RequestQueryStringParameters: RequestParameters {
     // MARK: - RequestParameters protocol
     
     public func setParametersInRequest(request: NSURLRequest) -> NSURLRequest {
-        var mutableURLRequest: NSMutableURLRequest! = request.mutableCopy() as NSMutableURLRequest
+        var mutableURLRequest: NSMutableURLRequest! = request.mutableCopy() as! NSMutableURLRequest
         setParametersInRequest(mutableURLRequest)
         
-        return request.copy() as NSURLRequest
+        return request.copy() as! NSURLRequest
     }
     
     public func setParametersInRequest(request: NSMutableURLRequest) {

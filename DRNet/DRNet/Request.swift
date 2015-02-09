@@ -40,7 +40,7 @@ public class Request {
         headers?.setHeadersInRequest(request)
         parameters?.setParametersInRequest(request)
         
-        return request.copy() as NSURLRequest
+        return request.copy() as! NSURLRequest
     }
     
 }

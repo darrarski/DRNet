@@ -76,7 +76,7 @@ public class URLCacheProvider: NSObject, Provider {
     
     // MARK: -
     
-    private let memoryWarningObserver: AnyObject?
+    private var memoryWarningObserver: AnyObject?
     
     public func responseForRequest(request: Request, completion: (response: Response) -> Void) {
         let urlRequest = request.toNSURLRequest()
@@ -207,7 +207,7 @@ public class URLCacheProvider: NSObject, Provider {
     
     private lazy var diskCachePath: String = {
         let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.CachesDirectory, NSSearchPathDomainMask.UserDomainMask, true)
-        let path = (paths.first! as String).stringByAppendingPathComponent(self.diskPath)
+        let path = (paths.first! as! String).stringByAppendingPathComponent(self.diskPath)
         return path
     }()
     
@@ -254,15 +254,20 @@ public class URLCacheProvider: NSObject, Provider {
             var files: [File] = fileURLs.map({
                 let path = $0.path!
                 let info = fileManager.attributesOfItemAtPath(path, error: nil)!
-                let modificationDate = info[NSFileModificationDate] as NSDate
-                let size = info[NSFileSize] as Int
+                let modificationDate = info[NSFileModificationDate] as! NSDate
+                let size = info[NSFileSize] as! Int
                 totalSize += size
                 
                 return File(path: path, modificationDate: modificationDate, size: size)
             })
             
             files.sort({ (first, second) -> Bool in
-                return (first.modificationDate.compare(second.modificationDate) == .OrderedDescending)
+                if first.modificationDate.compare(second.modificationDate) == .OrderedDescending {
+                    return true
+                }
+                else {
+                    return false
+                }
             })
             
             let diskCapacityInBytes: Int = {
@@ -321,7 +326,7 @@ public class URLCacheProvider: NSObject, Provider {
         archiver.encodeObject(response)
         archiver.finishEncoding()
         
-        return data.copy() as NSData
+        return data.copy() as! NSData
     }
     
     private func unarchiveResponse(data: NSData) -> URLCacheResponse? {
@@ -346,7 +351,7 @@ public class URLCacheProvider: NSObject, Provider {
             hash.appendFormat("%02x", i)
         }
         
-        return hash
+        return String(hash)
     }
     
     private class func MD5(string: String) -> String {

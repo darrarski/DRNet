@@ -11,22 +11,25 @@ import Foundation
 public class RequestStandardHeaders: RequestHeaders {
     
     public let headers: [String: String]
-    public let append: Bool = false
+    public let append: Bool
     
     public init(_ headers: [String: String], append: Bool? = nil) {
         self.headers = headers
         if let append = append {
             self.append = append
         }
+        else {
+            self.append = false
+        }
     }
     
     // MARK: - RequestParameters protocol
     
     public func setHeadersInRequest(request: NSURLRequest) -> NSURLRequest {
-        var mutableURLRequest: NSMutableURLRequest! = request.mutableCopy() as NSMutableURLRequest
+        var mutableURLRequest: NSMutableURLRequest! = request.mutableCopy() as! NSMutableURLRequest
         setHeadersInRequest(mutableURLRequest)
         
-        return request.copy() as NSURLRequest
+        return request.copy() as! NSURLRequest
     }
     
     public func setHeadersInRequest(request: NSMutableURLRequest) {

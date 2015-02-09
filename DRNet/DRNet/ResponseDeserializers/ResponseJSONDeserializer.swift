@@ -10,11 +10,14 @@ import Foundation
 
 public class ResponseJSONDeserializer: ResponseDeserializer {
     
-    public let options: NSJSONReadingOptions = .allZeros
+    public let options: NSJSONReadingOptions
     
     public init(options: NSJSONReadingOptions? = nil) {
         if let options = options {
             self.options = options
+        }
+        else {
+            self.options = .allZeros
         }
     }
     
