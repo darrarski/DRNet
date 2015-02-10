@@ -10,5 +10,5 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = "10.9"
   s.ios.deployment_target = "8.0"
   s.source   = { :git => "https://github.com/darrarski/DRNet.git", :tag => "v1.0.4"}
-  s.source_files = "DRNet/**/*.swift"
+  s.source_files = "DRNet/DRNet/**/*.swift"
 end
