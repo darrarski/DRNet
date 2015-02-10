@@ -11,6 +11,6 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = "8.0"
   s.source   = { :git => "https://github.com/darrarski/DRNet.git", :tag => "v1.0.4"}
   s.source_files = "DRNet/DRNet/**/*.swift"
-  s.libraries = "libcommonCrypto.dylib"
+  s.libraries = "commonCrypto"
 
 end
