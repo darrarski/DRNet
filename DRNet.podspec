@@ -12,8 +12,6 @@ Pod::Spec.new do |s|
   s.source   = { :git => "https://github.com/darrarski/DRNet.git", :tag => "v1.0.4"}
   s.source_files = "DRNet/DRNet/**/*.swift", "DRNet/DRNet_iOS/DRNet_iOS_Bridging_Header.h"
   s.libraries = "commonCrypto"
-  s.xcconfig = {
-    'SWIFT_OBJC_BRIDGING_HEADER' => 'DRNet_iOS_Bridging_Header.h'
-  }
+  s.public_header_files = 'DRNet_iOS_Bridging_Header.h'
 
 end
