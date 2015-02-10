@@ -96,6 +96,12 @@ iOS / OS X networking library written in Swift. Main purpose of this library is 
 
 You can add DRNet library to your project as a git submodule, or just copy it manualy. The library was prepared to be used as a embedded framework in your app. Refer to example app project for hints.
 
+You can also integrate DRNet with your project using Cocoapods (version >= 0.36) by adding the line below to your Podfile:
+
+    pod 'DRNet', :git => 'https://github.com/darrarski/DRNet.git'
+    
+For more informations refer to Cocoapods documentation.
+
 ## Usage
 
 Check out included examples:
@@ -109,3 +115,5 @@ The MIT License (MIT) - check out included [LICENSE](LICENSE) file
 ## Credits
 
 DRNet library takes some ideas from [Alamofire by Mattt Thompson](https://github.com/Alamofire/Alamofire) with more object oriented architecure and easy extensibility.
+
+The library uses code from [CryptoSwift by Marcin Krzyzanowski](https://github.com/krzyzanowskim/CryptoSwift) to compute MD5 hashes for cached network requests.

@@ -9,6 +9,4 @@
 #ifndef DRNet_DRNet_OSX_Bridging_Header_h
 #define DRNet_DRNet_OSX_Bridging_Header_h
 
-#import <CommonCrypto/CommonCrypto.h>
-
 #endif
