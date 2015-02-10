@@ -51,6 +51,8 @@
 		314FF4E119F5B75600A60FB8 /* DRNet_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 314FF4E019F5B75600A60FB8 /* DRNet_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		314FF50119F5B8BB00A60FB8 /* DRNet_OSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 314FF50019F5B8BB00A60FB8 /* DRNet_OSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		315544DD1A11575100B50432 /* ResponseImageDeserializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31230AFB1A0DAFCA006FA9C7 /* ResponseImageDeserializer.swift */; };
+		3175F8031A8AC12000F657AE /* CryptoSwift_MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175F8021A8AC12000F657AE /* CryptoSwift_MD5.swift */; };
+		3175F8041A8AC12000F657AE /* CryptoSwift_MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3175F8021A8AC12000F657AE /* CryptoSwift_MD5.swift */; };
 		3176C79F1A0DC0A400B773E6 /* DRNet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 314FF4DB19F5B75600A60FB8 /* DRNet.framework */; };
 		3176C7BA1A0DC28A00B773E6 /* DRNet_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3176C7B81A0DC28600B773E6 /* DRNet_Tests.swift */; };
 		3176C7C61A0DC42600B773E6 /* DRNet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 314FF4FC19F5B8BB00A60FB8 /* DRNet.framework */; };
@@ -83,12 +85,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		31230AE51A0DAFCA006FA9C7 /* Operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Operation.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		31230AE51A0DAFCA006FA9C7 /* Operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Operation.swift; sourceTree = "<group>"; };
 		31230AE61A0DAFCA006FA9C7 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Request.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		31230AE71A0DAFCA006FA9C7 /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Response.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		31230AE81A0DAFCA006FA9C7 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Task.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		31230AEA1A0DAFCA006FA9C7 /* Provider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Provider.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		31230AEC1A0DAFCA006FA9C7 /* URLCacheProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = URLCacheProvider.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		31230AEC1A0DAFCA006FA9C7 /* URLCacheProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = URLCacheProvider.swift; sourceTree = "<group>"; };
 		31230AED1A0DAFCA006FA9C7 /* URLCacheResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = URLCacheResponse.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		31230AEF1A0DAFCA006FA9C7 /* URLSessionProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = URLSessionProvider.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		31230AF01A0DAFCA006FA9C7 /* URLSessionResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = URLSessionResponse.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -112,6 +114,7 @@
 		314FF4FC19F5B8BB00A60FB8 /* DRNet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DRNet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		314FF4FF19F5B8BB00A60FB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		314FF50019F5B8BB00A60FB8 /* DRNet_OSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DRNet_OSX.h; sourceTree = "<group>"; };
+		3175F8021A8AC12000F657AE /* CryptoSwift_MD5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoSwift_MD5.swift; sourceTree = "<group>"; };
 		3176C7991A0DC0A400B773E6 /* DRNet_iOS_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DRNet_iOS_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3176C79C1A0DC0A400B773E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3176C7AC1A0DC0D200B773E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -235,6 +238,7 @@
 				314FF4FD19F5B8BB00A60FB8 /* DRNet_OSX */,
 				3176C7AA1A0DC0D200B773E6 /* DRNet_OSX_Tests */,
 				3176C7B51A0DC1D000B773E6 /* DRNet_Tests */,
+				3175F8011A8AC0FC00F657AE /* Helpers */,
 				314FF4DC19F5B75600A60FB8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -300,6 +304,14 @@
 				31230AE81A0DAFCA006FA9C7 /* Task.swift */,
 			);
 			path = DRNet;
+			sourceTree = "<group>";
+		};
+		3175F8011A8AC0FC00F657AE /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3175F8021A8AC12000F657AE /* CryptoSwift_MD5.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		3176C79A1A0DC0A400B773E6 /* DRNet_iOS_Tests */ = {
@@ -528,6 +540,7 @@
 				31230B191A0DAFCA006FA9C7 /* RequestJSONParameters.swift in Sources */,
 				31230B011A0DAFCA006FA9C7 /* Operation.swift in Sources */,
 				31230B111A0DAFCA006FA9C7 /* URLSessionResponse.swift in Sources */,
+				3175F8031A8AC12000F657AE /* CryptoSwift_MD5.swift in Sources */,
 				31230B0F1A0DAFCA006FA9C7 /* URLSessionProvider.swift in Sources */,
 				31230B1F1A0DAFCA006FA9C7 /* ResponseDeserializer.swift in Sources */,
 				31230B151A0DAFCA006FA9C7 /* RequestStandardHeaders.swift in Sources */,
@@ -557,6 +570,7 @@
 				31230B021A0DAFCA006FA9C7 /* Operation.swift in Sources */,
 				31230B121A0DAFCA006FA9C7 /* URLSessionResponse.swift in Sources */,
 				315544DD1A11575100B50432 /* ResponseImageDeserializer.swift in Sources */,
+				3175F8041A8AC12000F657AE /* CryptoSwift_MD5.swift in Sources */,
 				31230B101A0DAFCA006FA9C7 /* URLSessionProvider.swift in Sources */,
 				31230B201A0DAFCA006FA9C7 /* ResponseDeserializer.swift in Sources */,
 				31230B161A0DAFCA006FA9C7 /* RequestStandardHeaders.swift in Sources */,
