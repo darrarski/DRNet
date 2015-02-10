@@ -109,3 +109,5 @@ The MIT License (MIT) - check out included [LICENSE](LICENSE) file
 ## Credits
 
 DRNet library takes some ideas from [Alamofire by Mattt Thompson](https://github.com/Alamofire/Alamofire) with more object oriented architecure and easy extensibility.
+
+The library uses code from [CryptoSwift by Marcin Krzyzanowski](https://github.com/krzyzanowskim/CryptoSwift) to compute MD5 hashes for cached network requests.
